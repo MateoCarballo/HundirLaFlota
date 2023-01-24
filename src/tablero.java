@@ -1,24 +1,20 @@
-
+import java.lang.reflect.Array;
 
 public class tablero {
     public static int filas=10;
     public static int columnas=filas;
 
 
-
     char [][] posicionesBarcos = new char[filas][columnas];
-
     char [][] tableroPartida = new char[filas][columnas];
 
     public tablero(int columnas,int filas) {
         this.filas=filas;
         this.columnas=columnas;
-
     }
     public tablero(){
 
     }
-
     public static void duplicarMatriz(char[][] miMatriz1,char[][] miMatriz2){
         for (int i = 0; i < miMatriz1.length ; i++) {
             for (int j = 0; j <miMatriz2[i].length; j++) {
@@ -95,6 +91,47 @@ public class tablero {
             System.out.print("\n");
         }
     }
+
+    public static void generarBarcos(char[][] miMatriz){
+        int fila=0;
+        int columna=0;
+        int contadorBarcos=0;
+        boolean esVertical=false;
+        String [] registroPosiciones = new String[8];
+        do {
+            fila=utilidadesMatematicas.numAleatorioEntero(1,9);
+            columna=utilidadesMatematicas.numAleatorioEntero(1,9);
+            esVertical=utilidadesMatematicas.booleanoAleatorio();
+
+            //Comprobación de no pasarme del máximo índice
+            if ((miMatriz.length <= fila + 2) & (miMatriz[0].length <= columna + 2)) {
+                if (esVertical) {
+                    miMatriz[fila][columna] = 'B';
+                    miMatriz[fila + 1][columna] = 'B';
+                    miMatriz[fila + 2][columna] = 'B';
+                } else {
+                    miMatriz[fila][columna] = 'B';
+                    miMatriz[fila][columna + 1] = 'B';
+                    miMatriz[fila][columna + 2] = 'B';
+                }
+            contadorBarcos++;
+            }
+            //Comprobación de no pasarme del mínimo índice
+            if ((fila - 3 >= 1) & (columna - 3 >= 1)) {
+                if (esVertical) {
+                    miMatriz[fila][columna] = 'B';
+                    miMatriz[fila - 1][columna] = 'B';
+                    miMatriz[fila - 2][columna] = 'B';
+                } else {
+                    miMatriz[fila][columna] = 'B';
+                    miMatriz[fila][columna - 1] = 'B';
+                    miMatriz[fila][columna - 2] = 'B';
+                }
+            contadorBarcos++;
+            }
+        }while(contadorBarcos<8);
+    }
+
 
 
 

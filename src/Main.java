@@ -13,7 +13,9 @@ public class Main {
         System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
         miTablero.escribirMatriz(miTablero.posicionesBarcos);
         System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
-        miTablero.generarFlota(miTablero.posicionesBarcos);
+
+        miTablero.generarBarcos(miTablero.posicionesBarcos);
+        //miTablero.generarFlota(miTablero.posicionesBarcos);
         System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
         miTablero.escribirMatriz(miTablero.posicionesBarcos);
     }
